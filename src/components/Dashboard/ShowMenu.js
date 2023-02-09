@@ -24,6 +24,7 @@ export const ShowMenu = () => {
   }, [value]);
   return (
     <>
+      <h3 style={{textAlign:"center"}}>Check Chess Players Profile </h3>
       <select
         style={{ margin: "2rem 0 0 6rem" }}
         value={value}
