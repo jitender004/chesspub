@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import URI from "../../common/config";
 
 export const ShowMenu = () => {
   const [data, setData] = useState([]);
   const [name, setName] = useState([]);
   const [value, getValue] = useState("hikaru");
-  function selectName(e) {
-    getValue(e.target.value);
-  }
-  console.log(value);
+
   const getName = async () => {
     const response = await fetch(`https://api.chess.com/pub/titled/GM`);
     const json = await response.json();
@@ -17,6 +13,7 @@ export const ShowMenu = () => {
   const getData = async () => {
     const response = await fetch(`https://api.chess.com/pub/player/${value}`);
     const json = await response.json();
+    console.log(json);
     setData(json);
   };
   useEffect(() => {
@@ -24,15 +21,14 @@ export const ShowMenu = () => {
   }, []);
   useEffect(() => {
     getData();
-  }, []);
+  }, [value]);
   return (
     <>
       <select
         style={{ margin: "2rem 0 0 6rem" }}
         value={value}
-        onChange={(e) => selectName(e)}
+        onChange={(e) => getValue(e.target.value)}
       >
-        <option>Select Username</option>
         {name?.map((val, index) => {
           return (
             <option key={index} value={val}>
