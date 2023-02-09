@@ -1,38 +1,59 @@
-.App {
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 90%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.card-body {
+  border-top: 4px solid red;
+  width: 90%;
+  height: 100%;
   text-align: center;
+  background: black;
+  transition: border 2s;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-body:hover {
+  border-bottom: 300px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.card img {
+  width: 90%;
+  object-fit: cover;
+  transition: width 2s, height 2s, transform 2s;
+  background: red;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card h5 {
+  font-size: 1.2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: red;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+  .header_input {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .header_input {
+    width: 100%;
   }
 }
